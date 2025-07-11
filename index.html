@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Blue Age Club</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --main-blue: #0C3C53;
+      --sand: #C7AA79;
+      --off-white: #F7F7F5;
+      --light-blue: #58AFC1;
+      --dark-gray: #2D2D2D;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--main-blue);
+      color: var(--off-white);
+      min-height: 100%;
+      width: 100%;
+    }
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 20px 40px;
+      background: var(--dark-gray);
+      box-shadow: 0 1px 8px rgba(12,60,83,0.05);
+    }
+    .logo {
+      height: 48px;
+      width: 48px;
+      border-radius: 50%;
+      background: var(--off-white);
+      margin-right: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3em;
+      font-weight: bold;
+      color: var(--main-blue);
+      letter-spacing: 1px;
+      box-shadow: 0 1px 8px rgba(44, 44, 44, 0.06);
+    }
+    .club-name {
+      font-size: 1.6em;
+      font-weight: bold;
+      color: var(--off-white);
+    }
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      padding: 40px;
+      background: var(--main-blue);
+      min-height: 60vh;
+      box-sizing: border-box;
+      width: 100%;
+    }
+    .copy {
+      flex: 1 1 320px;
+      min-width: 260px;
+      max-width: 500px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(247,247,245,0.07);
+      border-radius: 12px;
+      padding: 24px;
+      box-shadow: 0 2px 12px rgba(12,60,83,0.07);
+      color: var(--off-white);
+      margin-bottom: 16px;
+    }
+    .copy h1 {
+      font-size: 2em;
+      color: var(--light-blue);
+      margin-bottom: 0.5em;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .copy p {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-top: 0;
+      margin-bottom: 1em;
+      color: var(--off-white);
+    }
+    .highlight {
+      color: var(--sand);
+      font-weight: 600;
+    }
+    .video {
+      flex: 1 1 320px;
+      min-width: 260px;
+      max-width: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+    .vimeo-wrapper {
+      width: 100%;
+      max-width: 500px;
+      aspect-ratio: 16/9;
+      border-radius: 14px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.07);
+      overflow: hidden;
+      background: #000;
+      margin: 0 auto;
+      position: relative;
+    }
+    /* Responsive Styles */
+    @media (max-width: 1020px) {
+      .main-content {
+        flex-direction: column;
+        gap: 28px;
+        padding: 20px 6vw 10px 6vw;
+      }
+      .copy, .video, .vimeo-wrapper {
+        max-width: 98vw;
+        margin-bottom: 8px;
+      }
+    }
+    @media (max-width: 630px) {
+      .header {
+        flex-direction: column;
+        padding: 12px 4vw;
+        gap: 6px;
+        align-items: flex-start;
+      }
+      .logo {
+        margin-bottom: 6px;
+      }
+      .club-name {
+        font-size: 1.1em;
+      }
+      .main-content {
+        gap: 14px;
+        padding: 10px 2vw 0 2vw;
+      }
+      .copy, .video, .vimeo-wrapper {
+        padding: 14px 4vw;
+        font-size: 1em;
+        max-width: 100vw;
+      }
+      .copy h1 {
+        font-size: 1.25em;
+      }
+    }
+    .signup-section {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 0 45px 0;
+      background: var(--main-blue);
+      box-sizing: border-box;
+    }
+    .signup-form-container {
+      background: rgba(247,247,245,0.13);
+      border-radius: 24px;
+      box-shadow: 0 4px 24px rgba(12,60,83,0.18);
+      padding: 32px 18px 28px 18px;
+      max-width: 460px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .signup-form-container h2 {
+      color: var(--sand);
+      font-size: 1.3em;
+      margin-bottom: 0.4em;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+    .signup-form-container p {
+      color: var(--off-white);
+      margin-bottom: 1.2em;
+      font-size: 1em;
+    }
+    .signup-form-container .cta-btn {
+      background: var(--sand);
+      color: var(--main-blue);
+      border: none;
+      border-radius: 32px;
+      padding: 13px 26px;
+      font-size: 1.05em;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(12,60,83,0.10);
+      margin-bottom: 18px;
+      transition: background 0.2s, color 0.2s;
+      display: inline-block;
+      text-decoration: none;
+    }
+    .signup-form-container .cta-btn:hover {
+      background: var(--light-blue);
+      color: var(--main-blue);
+    }
+    .signup-form-container .signup-iframe-wrapper {
+      width: 100%;
+      max-width: 370px;
+      height: 340px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px rgba(12,60,83,0.17);
+      border: 1.5px solid var(--sand);
+      margin-left: auto;
+      margin-right: auto;
+      background: var(--off-white);
+      margin-bottom: 0;
+    }
+    .signup-form-container iframe {
+      width: 100%;
+      height: 340px;
+      border: none;
+      background: var(--off-white);
+      border-radius: 16px;
+      display: block;
+    }
+    @media (max-width: 1020px) {
+      .signup-form-container .signup-iframe-wrapper {
+        max-width: 96vw;
+        height: 260px;
+      }
+      .signup-form-container iframe {
+        height: 260px;
+      }
+    }
+    @media (max-width: 630px) {
+      .signup-form-container .signup-iframe-wrapper {
+        max-width: 98vw;
+        height: 170px;
+      }
+      .signup-form-container iframe {
+        height: 170px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      BA
+    </div>
+    <div class="club-name">Blue Age Club</div>
+  </div>
+  <div class="main-content">
+    <div class="copy">
+      <h1>Willkommen im Blue Age Club</h1>
+      <p><span class="highlight">Wir leben Longevity.</span></p>
+      <p>
+        Unsere Community wächst – und vielleicht gehörst du bald dazu.<br>
+        Wir laden dich herzlich ein, Teil des Blue Age Clubs zu werden, wenn du wie wir daran glaubst, dass ein langes, gesundes Leben kein Zufall ist, sondern das Ergebnis guter Entscheidungen.
+      </p>
+      <p>
+        Wir stehen für einen strategischen, wissenschaftlich fundierten und umsetzbaren Ansatz.<br>
+        Wenn du Lust hast, gemeinsam mit anderen zu lernen, dich weiterzuentwickeln und Longevity nicht als Trend, sondern als Haltung zu verstehen – dann bist du bei uns genau richtig.
+      </p>
+      <p>
+        Denn: <span class="highlight">Wir machen Langlebigkeit zum Teamsport.</span>
+      </p>
+      <p>Schön, dass du da bist. Willkommen im Club.</p>
+    </div>
+    <div class="video">
+      <div class="vimeo-wrapper">
+        <div style="padding:56.25% 0 0 0;position:relative;">
+          <iframe src="https://player.vimeo.com/video/1100626151?h=ab4a8a0bc7&amp;badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+            frameborder="0"
+            allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share"
+            style="position:absolute;top:0;left:0;width:100%;height:100%;"
+            title="BLUE AGE CLUB EP01"></iframe>
+        </div>
+        <script src="https://player.vimeo.com/api/player.js"></script>
+      </div>
+    </div>
+  </div>
+  <div class="signup-section">
+    <div class="signup-form-container">
+      <h2>Werde Teil unserer Community</h2>
+      <p>Registriere dich kostenlos und vernetze dich mit Gleichgesinnten im Blue Age Club.</p>
+      <a class="cta-btn" href="https://blueageclub.circle.so/join?invitation_token=073d7602337a4c6c8f63b27fbc503a37f8aadd7e-70884f09-9cb2-4df0-bcba-b8b99c6c251e" target="_blank" rel="noopener">Jetzt beitreten</a>
+      <div class="signup-iframe-wrapper">
+        <iframe src="https://blueageclub.circle.so/join?invitation_token=073d7602337a4c6c8f63b27fbc503a37f8aadd7e-70884f09-9cb2-4df0-bcba-b8b99c6c251e" title="Signup Blue Age Club"></iframe>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
